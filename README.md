@@ -5,8 +5,6 @@
 
 ---
 
-> lablab-semantic-search-hackathon-embeddings
-
 | Team      | Embeddings |
 | ----------- | ----------- |
 | 0. Team Leader      | Ramesh Kumar       |
@@ -14,3 +12,9 @@
 | 2. Member   | Eric Brichetto        |
 | 3. Member   | Aman Yadav        |
 | 4. Member   | Bouhouch Chamseddine        |
+
+---
+
+```py
+Project : News Monitoring System
+```
