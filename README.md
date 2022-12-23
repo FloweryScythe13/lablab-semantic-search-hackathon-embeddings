@@ -1,18 +1,17 @@
 # https://lablab.ai/event/semantic-search-hackathon
 ---
-
 ## Team : Embeddings
 
 ---
 
-| Team      | Embeddings |
+| Team      | [Embeddings](https://lablab.ai/event/semantic-search-hackathon/embeddings) |
 | ----------- | ----------- |
-| 0. Team Leader      | Ramesh Kumar       |
-| 1. Member   | Nikolas Stavrou        |
-| 2. Member   | Eric Brichetto        |
-| 3. Member   | Aman Yadav        |
-| 4. Member   | Tobias Anyigor        |
-| 5. Member   | Bouhouch Chamseddine        |
+| 0. Team Leader      | [Ramesh Kumar](https://lablab.ai/u/@rameshkjes)       |
+| 1. Member   | [Nikolas Stavrou](https://lablab.ai/u/@nikolas_stavrou995)        |
+| 2. Member   | [Eric Brichetto](https://lablab.ai/u/@eric_brichetto537)        |
+| 3. Member   | [Aman Yadav](https://lablab.ai/u/@automatlog)        |
+| 4. Member   | [Tobias Anyigor](https://lablab.ai/u/@Tobby_ai)        |
+| 5. Member   | [Bouhouch Chamseddine](https://lablab.ai/u/@bouhouch_chamseddine252)        |
 ---
 
 ```py
