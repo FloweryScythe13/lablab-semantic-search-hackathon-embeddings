@@ -1,4 +1,5 @@
 import json
+
 import pandas as pd
 
 from .settings import DATA_PATH
@@ -10,4 +11,3 @@ def get_data():
 
     data = pd.DataFrame(data=data)
     return data
-

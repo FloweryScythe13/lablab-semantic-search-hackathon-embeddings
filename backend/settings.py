@@ -1,5 +1,4 @@
-
-from decouple import config 
+from decouple import config
 
 
 DATA_PATH = config("DATA_PATH", default="sample_data/Latest_News.json")

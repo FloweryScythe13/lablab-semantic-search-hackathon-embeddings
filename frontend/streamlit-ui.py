@@ -11,7 +11,7 @@ def main():
     if st.button("Submit"):
         # Trigger the model with the user's input
         result = get_similar_results(user_input)
-  
+
         # Display the top entries returned by the model
         st.dataframe(data=result)
 
