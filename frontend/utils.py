@@ -2,7 +2,7 @@ import json
 
 import pandas as pd
 
-from .settings import DATA_PATH
+from settings import DATA_PATH
 
 def get_data():
 
