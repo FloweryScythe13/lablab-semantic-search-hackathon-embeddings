@@ -10,4 +10,4 @@ API_KEY = config("API_KEY")
 
 # 
 # EMBEDDINGS_PATH = config("EMBEDDINGS_PATH", default=str(Path(__file__).parent.joinpath("embeddings", "embeddings.ann")))
-EMBEDDINGS_PATH = config("EMBEDDINGS_PATH", default="/app/lablab-semantic-search-hackathon-embeddings/embeddings/embeddings.ann")
+EMBEDDINGS_PATH = config("EMBEDDINGS_PATH", default="/app/lablab-semantic-search-hackathon-embeddings/embeddings/embeddings_v1.ann")
