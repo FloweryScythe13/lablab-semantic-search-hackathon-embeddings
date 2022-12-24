@@ -1,19 +1,27 @@
 import cohere
 import pandas as pd
 from annoy import AnnoyIndex
+from pathlib import Path
 
 from settings import API_KEY
 from settings import EMBEDDINGS_PATH
 from utils import get_data
 
 # Create and retrieve a Cohere API key from os.cohere.ai
-co = cohere.Client(API_KEY)
+try:
+    co = cohere.Client(API_KEY)
 
-search_index = AnnoyIndex(768, 'angular')
-print(f"EMBEDDINGS_PATH {EMBEDDINGS_PATH}")
-search_index.load(EMBEDDINGS_PATH)
+    search_index = AnnoyIndex(768, 'angular')
+    print(f"First: {Path(__file__)}")
+    print(f"Second: {Path(__file__).parent}")
+    print(f"Third: {Path(__file__).parent.joinpath('sample_data', 'Latest_News.json')}")
+    print(f"Fourth: {Path(__file__).parent.joinpath('embeddings', 'embeddings.ann')}")
+    print(f"EMBEDDINGS_PATH {EMBEDDINGS_PATH}")
+    search_index.load(EMBEDDINGS_PATH)
 
-data = get_data()
+    data = get_data()
+except Exception as ex:
+    print(ex)
 
 def get_similar_results(query):
 
