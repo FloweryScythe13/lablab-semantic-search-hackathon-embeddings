@@ -2,14 +2,15 @@ import cohere
 import pandas as pd
 from annoy import AnnoyIndex
 
-from .settings import API_KEY
-from .utils import get_data
+from settings import API_KEY
+from settings import EMBEDDINGS_PATH
+from utils import get_data
 
 # Create and retrieve a Cohere API key from os.cohere.ai
 co = cohere.Client(API_KEY)
 
 search_index = AnnoyIndex(768, 'angular')
-search_index.load('embeddings_v1.ann')
+search_index.load(EMBEDDINGS_PATH)
 
 data = get_data()
 
