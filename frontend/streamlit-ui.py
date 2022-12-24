@@ -1,5 +1,7 @@
 import streamlit as st
 
+from backend.get_similar_results import get_similar_results
+
 def main():
 
     # Create a text input widget
@@ -8,18 +10,10 @@ def main():
     # Create a button that the user can click to trigger the model
     if st.button("Submit"):
         # Trigger the model with the user's input
-        result = trigger_model(user_input)
-  
-    # Display the top entries returned by the model
-    st.write("Top entries:")
-    
-    # Just for testing
-    st.write(user_input)
+        result = get_similar_results(user_input)
 
-# Here we would need to query the results, probably another function inside for the
-# Cohere API calls
-def trigger_model(user_input):
-    return user_input
+        # Display the top entries returned by the model
+        st.dataframe(data=result)
 
 if __name__ == '__main__':
     main()
