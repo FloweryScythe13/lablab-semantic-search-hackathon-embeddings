@@ -43,3 +43,7 @@ Why apply semantic search techniques to a news monitoring product? Why is a mere
 ## Basic Project Architecture
 
 ![Project Architecture Diagram](./Architecture_Diagram.jpg "Architecture Diagram")
+
+---
+
+[Working Demo](https://drive.google.com/file/d/1UVjMEaT4yg1xGAMOgZiG-8T7lFOmBIuj/view)
