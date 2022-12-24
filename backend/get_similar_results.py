@@ -8,8 +8,8 @@ from .utils import get_data
 # Create and retrieve a Cohere API key from os.cohere.ai
 co = cohere.Client(API_KEY)
 
-search_index = AnnoyIndex(4096, 'angular')
-search_index.load('embeddings.ann')
+search_index = AnnoyIndex(768, 'angular')
+search_index.load('embeddings_v1.ann')
 
 data = get_data()
 
@@ -17,7 +17,7 @@ def get_similar_results(query):
 
     query_embed = co.embed(
         texts=[query],
-        model="large",
+        model="multilingual-22-12",
         truncate="LEFT",
     ).embeddings
 
@@ -29,8 +29,9 @@ def get_similar_results(query):
     # Format the results
     results = pd.DataFrame(
         data={
-            'texts': data.iloc[similar_item_ids[0]]['title'],
-            'distance': similar_item_ids[1],
+            'Relevant articles': data.iloc[similar_item_ids[0]]['title'],
+            # 'distance': similar_item_ids[1],
+            'Links': data.iloc[similar_item_ids[0]]['link'],
         },
     )
 
