@@ -4,47 +4,40 @@ import pandas as pd
 from annoy import AnnoyIndex
 from pathlib import Path
 
-from settings import API_KEY
-from settings import EMBEDDINGS_PATH
+import settings
+
 from utils import get_data
 
 # Create and retrieve a Cohere API key from os.cohere.ai
-try:
-    co = cohere.Client(API_KEY)
+class SearchEngine:
+    def __init__(self) -> None:
+        self.co = cohere.Client(settings.API_KEY)
 
-    search_index = AnnoyIndex(796, 'angular')
-#     logging.info(f"First: {Path(__file__)}")
-#     logging.info(f"Second: {Path(__file__).parent}")
-#     logging.info(f"Third: {Path(__file__).parent.joinpath('sample_data', 'Latest_News.json')}")
-#     logging.info(f"Fourth: {Path(__file__).parent.joinpath('embeddings', 'embeddings.ann')}")
-#     print(f"EMBEDDINGS_PATH {EMBEDDINGS_PATH}")
-    search_index.load(EMBEDDINGS_PATH)
+        self.search_index = AnnoyIndex(4096, 'angular')
+        self.search_index.load(settings.EMBEDDINGS_PATH)
+        self.data = get_data()
+        
+    def get_similar_results(self, query):
 
-    data = get_data()
-except Exception as ex:
-    logging.error(ex)
+        query_embed = self.co.embed(
+            texts=[query],
+            model="multilingual-22-12",
+            truncate="LEFT",
+        ).embeddings
 
-def get_similar_results(query):
+        # Retrieve the nearest neighbors
+        similar_item_ids = self.search_index.get_nns_by_vector(
+            query_embed[0],10,
+            include_distances=True,
+        )
+        # Format the results
+        results = pd.DataFrame(
+            data={
+                'Relevant articles': self.data.iloc[similar_item_ids[0]]['title'],
+                # 'distance': similar_item_ids[1],
+                'Links': self.data.iloc[similar_item_ids[0]]['link'],
+            },
+        )
 
-    query_embed = co.embed(
-        texts=[query],
-        model="multilingual-22-12",
-        truncate="LEFT",
-    ).embeddings
-
-    # Retrieve the nearest neighbors
-    similar_item_ids = search_index.get_nns_by_vector(
-        query_embed[0],10,
-        include_distances=True,
-    )
-    # Format the results
-    results = pd.DataFrame(
-        data={
-            'Relevant articles': data.iloc[similar_item_ids[0]]['title'],
-            # 'distance': similar_item_ids[1],
-            'Links': data.iloc[similar_item_ids[0]]['link'],
-        },
-    )
-
-    results.reset_index(drop=True, inplace=True)
-    return results
+        results.reset_index(drop=True, inplace=True)
+        return results
