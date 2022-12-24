@@ -7,5 +7,4 @@ DATA_PATH = config("DATA_PATH", default="../sample_data/Latest_News.json")
 API_KEY = config("API_KEY")
 
 # 
-EMBEDDINGS_PATH = config("EMBEDDINGS_PATH", default="lablab-semantic-search-hackathon-embeddings
-/embeddings/embeddings.ann")
+EMBEDDINGS_PATH = config("EMBEDDINGS_PATH", default="lablab-semantic-search-hackathon-embeddings/embeddings/embeddings.ann")
