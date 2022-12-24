@@ -1,4 +1,5 @@
 import cohere
+import logging 
 import pandas as pd
 from annoy import AnnoyIndex
 from pathlib import Path
@@ -12,10 +13,10 @@ try:
     co = cohere.Client(API_KEY)
 
     search_index = AnnoyIndex(768, 'angular')
-    print(f"First: {Path(__file__)}")
-    print(f"Second: {Path(__file__).parent}")
-    print(f"Third: {Path(__file__).parent.joinpath('sample_data', 'Latest_News.json')}")
-    print(f"Fourth: {Path(__file__).parent.joinpath('embeddings', 'embeddings.ann')}")
+    logging.info(f"First: {Path(__file__)}")
+    logging.info(f"Second: {Path(__file__).parent}")
+    logging.info(f"Third: {Path(__file__).parent.joinpath('sample_data', 'Latest_News.json')}")
+    logging.info(f"Fourth: {Path(__file__).parent.joinpath('embeddings', 'embeddings.ann')}")
     print(f"EMBEDDINGS_PATH {EMBEDDINGS_PATH}")
     search_index.load(EMBEDDINGS_PATH)
 
