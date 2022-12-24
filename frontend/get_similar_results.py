@@ -10,6 +10,7 @@ from utils import get_data
 co = cohere.Client(API_KEY)
 
 search_index = AnnoyIndex(768, 'angular')
+print(f"EMBEDDINGS_PATH {EMBEDDINGS_PATH}")
 search_index.load(EMBEDDINGS_PATH)
 
 data = get_data()
