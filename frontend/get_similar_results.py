@@ -13,7 +13,7 @@ class SearchEngine:
     def __init__(self) -> None:
         self.co = cohere.Client(settings.API_KEY)
 
-        self.search_index = AnnoyIndex(4096, 'angular')
+        self.search_index = AnnoyIndex(768, 'angular')
         self.search_index.load(settings.EMBEDDINGS_PATH)
         self.data = get_data()
         
