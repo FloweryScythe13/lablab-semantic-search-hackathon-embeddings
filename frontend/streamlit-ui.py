@@ -1,6 +1,6 @@
 import streamlit as st
 
-from backend.get_similar_results import get_similar_results
+from get_similar_results import get_similar_results
 
 def main():
 
