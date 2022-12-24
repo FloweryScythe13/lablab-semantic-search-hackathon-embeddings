@@ -1,5 +1,5 @@
 from decouple import config
-
+from pathlib import Path
 
 DATA_PATH = config("DATA_PATH", default=Path(__file__).parent.joinpath("sample_data", "Latest_News.json"))
 
