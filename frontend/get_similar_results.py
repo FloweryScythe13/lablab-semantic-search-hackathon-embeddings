@@ -12,7 +12,7 @@ from utils import get_data
 try:
     co = cohere.Client(API_KEY)
 
-    search_index = AnnoyIndex(768, 'angular')
+    search_index = AnnoyIndex(4096, 'angular')
 #     logging.info(f"First: {Path(__file__)}")
 #     logging.info(f"Second: {Path(__file__).parent}")
 #     logging.info(f"Third: {Path(__file__).parent.joinpath('sample_data', 'Latest_News.json')}")
