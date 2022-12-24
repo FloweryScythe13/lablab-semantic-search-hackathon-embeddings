@@ -12,17 +12,17 @@ from utils import get_data
 try:
     co = cohere.Client(API_KEY)
 
-    search_index = AnnoyIndex(768, 'angular')
-    logging.info(f"First: {Path(__file__)}")
-    logging.info(f"Second: {Path(__file__).parent}")
-    logging.info(f"Third: {Path(__file__).parent.joinpath('sample_data', 'Latest_News.json')}")
-    logging.info(f"Fourth: {Path(__file__).parent.joinpath('embeddings', 'embeddings.ann')}")
-    print(f"EMBEDDINGS_PATH {EMBEDDINGS_PATH}")
+    search_index = AnnoyIndex(4096, 'angular')
+#     logging.info(f"First: {Path(__file__)}")
+#     logging.info(f"Second: {Path(__file__).parent}")
+#     logging.info(f"Third: {Path(__file__).parent.joinpath('sample_data', 'Latest_News.json')}")
+#     logging.info(f"Fourth: {Path(__file__).parent.joinpath('embeddings', 'embeddings.ann')}")
+#     print(f"EMBEDDINGS_PATH {EMBEDDINGS_PATH}")
     search_index.load(EMBEDDINGS_PATH)
 
     data = get_data()
 except Exception as ex:
-    print(ex)
+    logging.error(ex)
 
 def get_similar_results(query):
 
